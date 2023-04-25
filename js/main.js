@@ -7,7 +7,6 @@ class Punto {
         this.z = z;
         this.d = d;
     }
-    consolaP() { console.log(`x: ${this.x} y: ${this.y} z: ${this.z} descripcion: ${this.d}`) };
 }
 
 class Linea {
@@ -32,21 +31,22 @@ class Linea {
             if (vert == 0) {
                 salida = "Los puntos son iguales";3
             }
-            return salida;    
+                
         }else{
             switch (inputPrompt) {
                 case 1: //en porcentaje
                     salida = salida *100 + " %" 
-                    return salida;    
+                    break;    
                 case 2: //en y/x
-                    return salida;    
+                    break;    
                 case 3: //en grados
                     salida = 180 * Math.atan(salida) / Math.PI + " °";
-                    return salida;    
+                    break;    
                 default:
-                break;
+                    break;
             }
         }
+        return salida;
     }
 }
 
@@ -95,6 +95,16 @@ class Conjunto {
         } while (inputPrompt !== null)
     }
 
+    newpoint(x,y,z,d) {
+        let point = new Punto (x, y, z, d );
+        this.array_puntos.push (point);
+        if (this.array_puntos.length > 1) {
+            let linea = new Linea (this.array_puntos[this.array_puntos.length - 2] , this.array_puntos[this.array_puntos.length - 1]);
+            this.array_lineas.push(linea);
+        }
+
+    }
+
     lineaDistancia(){
         return this.array_lineas.map((element) => element.getDist());
     }
@@ -107,10 +117,10 @@ class Conjunto {
     }
 
     consola() {
-        console.table(this.array_puntos);
-        console.table(this.array_lineas);
-        console.table(this.lineaDistancia());
-        console.table(this.lineaPendiente());
+        console.log(this.array_puntos);
+        console.log(this.array_lineas);
+        // console.table(this.lineaDistancia());
+        // console.table(this.lineaPendiente());
 
     }
 }
@@ -118,5 +128,23 @@ class Conjunto {
 const conjpuntos = new Conjunto ();
 
 // conjpuntos.inputdatoshard(); //prueba con datos hardcodeados
-conjpuntos.inputdatos();
-conjpuntos.consola();
+// conjpuntos.inputdatosDOM();
+// conjpuntos.consola();
+
+const button = document.getElementById('btnpunto');
+console.log(button);
+function cargar_datos() {
+    const x = parseFloat(document.getElementById('x').value);
+    const y = parseFloat(document.getElementById('y').value);
+    const z = parseFloat(document.getElementById('z').value);
+    const descripcion = document.getElementById('descripcion').value;
+    conjpuntos.newpoint (x, y, z, descripcion);
+    console.log(x);
+    conjpuntos.consola();
+}
+
+button.addEventListener( 'click', (event) => {
+    event.preventDefault(); // Evita que el formulario se envíe de manera predeterminada
+
+    
+});

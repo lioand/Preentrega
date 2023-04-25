@@ -1,0 +1,77 @@
+/* Estilos para el formulario */
+.input-puntos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.btnpunto {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para los labels */
+label {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los inputs */
+input, textarea {
+    padding: 1px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+/* Estilos para el botón de enviar */
+button[type="submit"] {
+    background-color: #4285f4;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    border: 2px solid #0b0b0b;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}
+
+button[type="submit"]:hover {
+    background-color: #00174a;
+}
+  
+body{
+    height: 100vh;
+    margin: 15px;
+    padding: 0;
+    background-color:rgb(228, 253, 253);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 20px;
+    width: 25px;
+    /* -moz-appearance: textfield; para Firefox */
+}
+
+table {
+    margin: auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    width: 70%;
+    margin-top: 25px;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid black;
+}

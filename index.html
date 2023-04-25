@@ -2,7 +2,10 @@
 <html lang="es">
     <head>
         <title>Calculadora de pendientes</title>
+
+        <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
+
     <body>
         <div>
             <h1>Calculadora de pendientes</h1>
@@ -12,8 +15,54 @@
                 </p>
             <img src="Pendiente.webp" alt="Pendiente">
         </div>
-        
+
+        <form>
+            <fieldset>
+                <legend>Ingresar Datos</legend>
+
+                <label for="x">Valor de X:</label>
+                <input type="number" id="x" name="x" step="0.00001" required>
+            
+                <label for="y">Valor de Y:</label>
+                <input type="number" id="y" name="y" step="0.00001" required>
+            
+                <label for="z">Valor de Z:</label>
+                <input type="number" id="z" name="z" step="0.00001" required>
+            
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="Descripcion">
+            
+                <button type="submit" id="btnpunto" onclick="cargar_datos()">Cargar datos</button>
+            </fieldset>
+        </form>
+        <table>
+            <tr>
+                <th>x</th>
+                <th>y</th>
+                <th>z</th>
+                <th>Descripción</th>
+            </tr>
+            <!-- <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>Descripción 1</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>Descripción 2</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>Descripción 3</td>
+            </tr> -->
+        </table>
+
         <script src="js/main.js"> </script>
     </body>
-    
+
 </html>
