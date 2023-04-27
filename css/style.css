@@ -33,10 +33,10 @@ input, textarea {
 
 /* Estilos para el botón de enviar */
 button[type="submit"], select {
-    background-color: #4285f4;
+    background-color: #174D4D;
     color: rgb(255, 255, 255);
     padding: 10px 15px;
-    border: 2px solid #0b0b0b;
+    border: 2px solid #000000;
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
@@ -47,14 +47,15 @@ button[type="submit"], select {
 }
 
 button[type="submit"]:hover {
-    background-color: #00174a;
+    background-color: #03363D;
 }
   
 body{
     height: auto;
     margin: 15px;
     padding: 0;
-    background-color:rgb(228, 253, 253);
+    background-color:#F8F9F9;
+    color: #093d03;
 }
 
 h3{
