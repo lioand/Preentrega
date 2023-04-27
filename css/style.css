@@ -5,14 +5,15 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
-    margin-bottom: 0;
 }
-.btnpunto {
+/* Estilos para los div */
+div {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    text-align: justify ;
 }
 
 /* Estilos para los labels */
@@ -31,7 +32,7 @@ input, textarea {
 }
 
 /* Estilos para el botón de enviar */
-button[type="submit"] {
+button[type="submit"], select {
     background-color: #4285f4;
     color: rgb(255, 255, 255);
     padding: 10px 15px;
@@ -42,6 +43,7 @@ button[type="submit"] {
     transition: background-color 0.3s ease;
     justify-content: center;
     align-items: center;
+    margin: 15px;
 }
 
 button[type="submit"]:hover {
@@ -49,11 +51,17 @@ button[type="submit"]:hover {
 }
   
 body{
-    height: 100vh;
+    height: auto;
     margin: 15px;
     padding: 0;
     background-color:rgb(228, 253, 253);
 }
+
+h3{
+    text-align: center;
+}
+
+
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -63,15 +71,40 @@ input[type="number"]::-webkit-inner-spin-button {
     /* -moz-appearance: textfield; para Firefox */
 }
 
-table {
-    margin: auto;
-    border-collapse: collapse;
-    border-radius: 10px;
-    width: 70%;
-    margin-top: 25px;
+#in {
+    border: 1px solid #5d5d5d;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
-th, td {
-    padding: 5px;
+#fi {
+    border: 1px solid #5d5d5d;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+th,tr {
+    padding-top: 5px;
+    padding-bottom: 7px;
     text-align: center;
-    border: 1px solid black;
+    width: 150px;
+    border-collapse: collapse;
+}
+tr:nth-child(even) {background-color: #e7e8fe;}
+#tabla_Lineas{
+
+    
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    align-items: flex-start;
+}
+select{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
 }
