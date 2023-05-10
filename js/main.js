@@ -7,7 +7,6 @@ class Punto {
         this.z = z;
         this.d = d;
     }
-    consolaP() { console.log(`x: ${this.x} y: ${this.y} z: ${this.z} descripcion: ${this.d}`) };
 }
 
 class Linea {
@@ -32,21 +31,22 @@ class Linea {
             if (vert == 0) {
                 salida = "Los puntos son iguales";3
             }
-            return salida;    
+                
         }else{
             switch (inputPrompt) {
                 case 1: //en porcentaje
                     salida = salida *100 + " %" 
-                    return salida;    
+                    break;    
                 case 2: //en y/x
-                    return salida;    
+                    break;    
                 case 3: //en grados
                     salida = 180 * Math.atan(salida) / Math.PI + " °";
-                    return salida;    
+                    break;    
                 default:
-                break;
+                    break;
             }
         }
+        return salida;
     }
 }
 
@@ -95,6 +95,12 @@ class Conjunto {
         } while (inputPrompt !== null)
     }
 
+    inputdatosDOM() {
+
+
+
+    }
+
     lineaDistancia(){
         return this.array_lineas.map((element) => element.getDist());
     }
@@ -117,6 +123,19 @@ class Conjunto {
 
 const conjpuntos = new Conjunto ();
 
-// conjpuntos.inputdatoshard(); //prueba con datos hardcodeados
-conjpuntos.inputdatos();
-conjpuntos.consola();
+conjpuntos.inputdatoshard(); //prueba con datos hardcodeados
+// conjpuntos.inputdatosDOM();
+// conjpuntos.consola();
+
+const button = document.getElementById('btnpunto');
+button.addEventListener( 'click', (event) => {
+    event.preventDefault(); // Evita que el formulario se envíe de manera predeterminada
+
+    const x = parseFloat(document.getElementById('x').value);
+    const y = parseFloat(document.getElementById('y').value);
+    const z = parseFloat(document.getElementById('z').value);
+    const descripcion = document.getElementById('descripcion').value;
+    const datos = [x, y, z, descripcion];
+    console.log(datos);
+
+});
