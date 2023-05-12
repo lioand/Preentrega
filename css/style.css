@@ -5,14 +5,24 @@
     align-items: center;
     justify-content: center;
     margin-top: 20px;
+<<<<<<< HEAD
     margin-bottom: 0;
 }
 .btnpunto {
+=======
+}
+/* Estilos para los div */
+div {
+>>>>>>> 23c831b8294b2d9af3fdc7372ff9b350f2169d7a
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+<<<<<<< HEAD
+=======
+    text-align: justify ;
+>>>>>>> 23c831b8294b2d9af3fdc7372ff9b350f2169d7a
 }
 
 /* Estilos para los labels */
@@ -31,17 +41,26 @@ input, textarea {
 }
 
 /* Estilos para el botón de enviar */
+<<<<<<< HEAD
 button[type="submit"] {
     background-color: #4285f4;
     color: rgb(255, 255, 255);
     padding: 10px 15px;
     border: 2px solid #0b0b0b;
+=======
+button[type="submit"], select {
+    background-color: #174D4D;
+    color: rgb(255, 255, 255);
+    padding: 10px 15px;
+    border: 2px solid #000000;
+>>>>>>> 23c831b8294b2d9af3fdc7372ff9b350f2169d7a
     border-radius: 5px;
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s ease;
     justify-content: center;
     align-items: center;
+<<<<<<< HEAD
 }
 
 button[type="submit"]:hover {
@@ -54,13 +73,79 @@ body{
     padding: 0;
 }
 
+=======
+    margin: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: #03363D;
+}
+  
+body{
+    height: auto;
+    margin: 15px;
+    padding: 0;
+    background-color:#F8F9F9;
+    color: #093d03;
+}
+
+h3{
+    text-align: center;
+}
+
+
+
+>>>>>>> 23c831b8294b2d9af3fdc7372ff9b350f2169d7a
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 20px;
     width: 25px;
+<<<<<<< HEAD
 }
 
 input[type="number"] {
     -moz-appearance: textfield; /* para Firefox */
 }
+=======
+    /* -moz-appearance: textfield; para Firefox */
+}
+
+#in {
+    border: 1px solid #5d5d5d;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+#fi {
+    border: 1px solid #5d5d5d;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+th,tr {
+    padding-top: 5px;
+    padding-bottom: 7px;
+    text-align: center;
+    width: 150px;
+    border-collapse: collapse;
+}
+tr:nth-child(even) {background-color: #e7e8fe;}
+#tabla_Lineas{
+
+    
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    align-items: flex-start;
+}
+select{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+>>>>>>> 23c831b8294b2d9af3fdc7372ff9b350f2169d7a
