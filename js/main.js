@@ -135,7 +135,8 @@ button.addEventListener( 'click', (event) => {
     const y = parseFloat(document.getElementById('y').value);
     const z = parseFloat(document.getElementById('z').value);
     const descripcion = document.getElementById('descripcion').value;
-    const datos = [x, y, z, descripcion];
+    const datos = new Punto(x, y, z, descripcion);
+    
     console.log(datos);
 
 });

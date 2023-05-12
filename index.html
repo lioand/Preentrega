@@ -2,18 +2,19 @@
 <html lang="es">
     <head>
         <title>Calculadora de pendientes</title>
-	<style>
-		table {
-			margin: 0 auto;
-			border-collapse: collapse;
-			width: 70%;
-		}
-		th, td {
-			padding: 8px;
-			text-align: center;
-			border: 1px solid black;
-		}
-	</style>
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            table {
+                margin: 0 auto;
+                border-collapse: collapse;
+                width: 70%;
+            }
+            th, td {
+                padding: 8px;
+                text-align: center;
+                border: 1px solid black;
+            }
+        </style>
     </head>
     <body>
         <div>
@@ -25,25 +26,25 @@
             <img src="Pendiente.webp" alt="Pendiente">
         </div>
 
-        <form>
-            <fieldset>
-                <legend>Ingresar Datos</legend>
 
-                <label for="x">Valor de X:</label>
-                <input type="number" id="x" name="x" step="0.00001" required>
-            
-                <label for="y">Valor de Y:</label>
-                <input type="number" id="y" name="y" step="0.00001" required>
-            
-                <label for="z">Valor de Z:</label>
-                <input type="number" id="z" name="z" step="0.00001" required>
-            
-                <label for="descripcion">Descripción:</label>
-                <input type="text" id="descripcion" name="Descripcion">
-            
-                <button type="submit" id="btnpunto">Cargar datos</button>
-            </fieldset>
-        </form>
+        <div class="input-puntos">
+            <label for="x">Valor de X: </label>
+            <input type="number" class= "field" id="x" required>
+        
+            <label for="y">Valor de Y: </label>
+            <input type="number" class= "field" id="y" required>
+        
+            <label for="z">Valor de Z: </label>
+            <input type="number" class= "field" id="z" required>
+        
+            <label for="descripcion">Descripción: </label>
+            <input type="text" class= "field" id="descripcion">
+        </div>
+          
+        <div class="btnpunto">
+            <button type="submit" id="btnpunto">Submit</button>
+        </div>
+
         <table>
             <tr>
                 <th>x</th>
