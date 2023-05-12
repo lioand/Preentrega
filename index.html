@@ -1,104 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
+        <meta charset="UTF-8">
         <title>Perfil Longitudinal</title>
 
-        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet"  href="css/style.css">
+        <script src="./js/plotly/plotly-2.20.0.min.js" charset="utf-8"></script>
+
     </head>
 
     <body>
-        <div style="display: flex;flex-direction: column;justify-content: flex-start; text-align: justify;">
-            <h1>Perfil Longitudinal</h1>
-            <h5 style="margin-top: 0; padding-right: 20%; padding-left: 20%;">
-                En este programa se permite cargar puntos con los valores en 3 dimensiones 
-                <B><FONT COLOR="red">(si se deja vacio no guarda el punto) </FONT>
-                y mediante el boton cargar datos se agrega al conjunto de puntos. Al tener mas de 2 puntos se agregan a la tabla de lineas 
-                y con el boton <B><FONT COLOR="red">Mostrar Propiedades</FONT> se pueden actualizar los valores de de distancia y de 
-                la pendiente. El <B><FONT COLOR="red">Menu desplegable</FONT> permite cambiar en que formato se muestra la pendiente. 
-                <br>Por ultimo los botones <B><FONT COLOR="red">Guardar datos</FONT> y <B><FONT COLOR="red">Restaurar datos</FONT> permiten 
-                almacenar localmente los puntos y lineas creados en caso de cerrarse el navegador.
-                
+        <nav>
+            <ul>
+            <button id="btn-seccion-1">Inicio</button>
+            <button id="btn-seccion-2">Carga de Puntos</button>
+            <button id="btn-seccion-3" onclick="grafico3d()">Graficos</button>
+            </ul>
+          </nav>     
 
-            </h5>
-            <!-- <img src="Pendiente.webp" id="img_inicial" alt="Pendiente"> -->
-        </div>
+        <main>
+            <!-- Esta es la pagina inicial -->
 
-        <form>
-            <fieldset>
-                <legend>Ingresar Datos</legend>
+            <section id="seccion-1">
+                <h1>Sección 1</h1>
+                <div style="display: flex;flex-direction: column;justify-content: flex-start; text-align: justify;">
+                    <h1>Perfil Longitudinal</h1>
+                    <h5 style="margin-top: 0; padding-right: 20%; padding-left: 20%;">
+                        En este programa se permite cargar puntos con los valores en 3 dimensiones 
+                        <B><FONT COLOR="red">(si se deja vacio no guarda el punto) </FONT>
+                        y mediante el boton cargar datos se agrega al conjunto de puntos. Al tener mas de 2 puntos se agregan a la tabla de lineas 
+                        y con el boton <B><FONT COLOR="red">Mostrar Propiedades</FONT> se pueden actualizar los valores de de distancia y de 
+                        la pendiente. El <B><FONT COLOR="red">Menu desplegable</FONT> permite cambiar en que formato se muestra la pendiente. 
+                        <br>Por ultimo los botones <B><FONT COLOR="red">Guardar datos</FONT> y <B><FONT COLOR="red">Restaurar datos</FONT> permiten 
+                        almacenar localmente los puntos y lineas creados en caso de cerrarse el navegador.
+                    </h5>
+                </div>
+            </section>
+            <!-- Esta es la pagina donde cargo los puntos -->
+            <section id="seccion-2">
+                <h1>Sección 2</h1>
+                <form>
+                    <fieldset>
+                        <legend>Ingresar Puntos Manualmente</legend>
+        
+                        <label for="x">Valor de X:</label>
+                        <input type="number" id="x" required>
+                    
+                        <label for="y">Valor de Y:</label>
+                        <input type="number" id="y" required>
+                    
+                        <label for="z">Valor de Z:</label>
+                        <input type="number" id="z" required>
+                    
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" id="descripcion" >
+                    
+                        <button id="btnpunto" >Cargar datos</button>
+                    </fieldset>
+                </form>
+                <h3>Tabla de lineas</h3>
+        
+                <div id="tabla_Lineas">
+                    <table id="in">
+                        <tr>
+                            <th colspan="4">Punto Inicio</th>
+                        </tr>
+                        <tr>
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>Z</th>
+                            <th>Descripción</th>
+                        </tr>
+                        <tbody id="table_pi">
+                        </tbody>
+                    </table>
+        
+                    <table id="fi">
+                        <tr>
+                            <th colspan="4">Punto Final</th>
+                        </tr>
+                        <tr>
+                            <th>X</th>
+                            <th>Y</th>
+                            <th>Z</th>
+                            <th>Descripción</th>
+                        </tr>
+                        <tbody id="table_pf">
+                        </tbody>
+        
+                    </table>
+        
+                    <table id="t_prop">
+                    </table>
+                </div>  
+        
+                <div id="button" style="display:flex;">
+                    <div  id="prop" style="border-right:1px solid black; padding-right:10px;">
+                        <button id="btnpropiedades" >Mostrar <br> Propiedades</button>
+                        <!-- Agregar el menú desplegable para seleccionar el tipo de unidad -->
+                        <select id="slc_Pendiente">
+                            <option value="1">Porcentaje</option>
+                            <option value="2">y/x</option>
+                            <option value="3">Grados</option>
+                        </select>
+                    </div>
+        
+                    <div  style="padding-left:10px;">
+                        <button id="btnguardar" >Guardar datos</button>
+                        <button id="btnrestaurar" >Restaurar datos</button>
+                    </div>
+                </div>
+                <h5 style="margin-bottom: 0px;">
+                    Cargue los datos simulados desde el servidor
+                </h5>
 
-                <label for="x">Valor de X:</label>
-                <input type="number" id="x" required>
-            
-                <label for="y">Valor de Y:</label>
-                <input type="number" id="y" required>
-            
-                <label for="z">Valor de Z:</label>
-                <input type="number" id="z" required>
-            
-                <label for="descripcion">Descripción:</label>
-                <input type="text" id="descripcion" >
-            
-                <button type="submit" id="btnpunto" >Cargar datos</button>
-            </fieldset>
-        </form>
-        <h3>Tabla de lineas</h3>
+                <div >
+                    <button id="Json" onclick="CargarJson()">Cargar datos</button>
 
-        <div id="tabla_Lineas">
-            <table id="in">
-                <tr>
-                    <th colspan="4">Punto Inicio</th>
-                </tr>
-                <tr>
-                    <th>X</th>
-                    <th>Y</th>
-                    <th>Z</th>
-                    <th>Descripción</th>
-                </tr>
-                <tbody id="table_pi">
-                </tbody>
-            </table>
-            <table id="fi">
-                <tr>
-                    <th colspan="4">Punto Final</th>
-                </tr>
-                <tr>
-                    <th>X</th>
-                    <th>Y</th>
-                    <th>Z</th>
-                    <th>Descripción</th>
-                </tr>
-                <tbody id="table_pf">
-                </tbody>
-
-            </table>
-
-            <table id="t_prop">
-            </table>
-        </div>        
-        <div id="button" style="display:flex;">
-            <div  id="prop" style="border-right:1px solid black; padding-right:10px;">
-
-                <button type="submit" id="btnpropiedades" >Mostrar <br> Propiedades</button>
-    
-                <select id="slc_Pendiente">
-                    <option value="1">Porcentaje</option>
-                    <option value="2">y/x</option>
-                    <option value="3">Grados</option>
-                </select>
-           
-            </div>
-
-            <div  id="storage" style="padding-left:10px;">
-                <button type="submit" id="btnguardar" >Guardar datos</button>
-                <button type="submit" id="btnrestaurar" >Restaurar datos</button>
-            </div>
-    
-        </div>
+                </div>
 
 
-        <!-- <img src="Pendiente.webp" id="img_inicial" alt="Pendiente"> -->
-        <script src="js/main.js"> </script>
+
+                <!-- <h5 style="margin-bottom: 0px;">
+                    Adjunte un archivo .cvs que tenga formato de punto (x,y,z,descripcion)
+                </h5>
+        
+                <div>
+                    <input type="file" id="archivo" onchange="cargarArchivo()" />
+                    <button onclick="cargarArchivo()">Guardar archivo</button>
+                </div> -->
+        
+            </section>
+            <section id="seccion-3">
+                <div id="mensajeCarga">Cargando gráfico...</div>
+
+                <h1>Sección 3</h1>
+                <div id='graph'></div>
+                <div>
+                    <label for="grafico-3D">3D</label>
+                    <input type="radio" id="grafico-3D" name="grafico"value="3D" checked onchange="grafico3d()">
+                    <label for="grafico-planta">Planta</label>
+                    <input type="radio" id="grafico-planta" name="grafico"value="planta" onchange="graficoplanta()">
+                    <label for="grafico-perfil">Perfil Longitudinal</label>
+                    <input type="radio" id="grafico-perfil" name="grafico"value="perfil" onchange="graficoperfil()">
+                </div>
+            </section>
+        </main>
+
+        <script src="./js/main.js"></script>
+        <script src="./js/graph.js"></script>
+
+
     </body>
 
 </html>
