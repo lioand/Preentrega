@@ -1,5 +1,4 @@
 //----------Datos para mostrar u ocultar las distintas secciones del DOM
-//------------------------------------------------------------------------------------------------------------------
 // Obtengo los botones y las secciones de contenido
 
 

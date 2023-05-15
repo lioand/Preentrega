@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
     <head>
-        <!-- <meta charset="UTF-8"> -->
+        <meta charset="UTF-8">
         <title>Perfil Longitudinal</title>
 
         <link rel="stylesheet"  href="css/style.css">
@@ -11,12 +11,10 @@
 
     <body>
         <nav>
-            <ul>
             <button id="btn-seccion-1">Inicio</button>
             <button id="btn-seccion-2">Carga de Puntos</button>
             <button id="btn-seccion-3" onclick="grafico3d()">Graficos</button>
-            </ul>
-          </nav>     
+        </nav>     
 
         <main>
             <!-- Esta es la pagina inicial -->
@@ -116,18 +114,6 @@
                     <button id="Json" onclick="CargarJson()">Cargar datos</button>
 
                 </div>
-
-
-
-                <!-- <h5 style="margin-bottom: 0px;">
-                    Adjunte un archivo .cvs que tenga formato de punto (x,y,z,descripcion)
-                </h5>
-        
-                <div>
-                    <input type="file" id="archivo" onchange="cargarArchivo()" />
-                    <button onclick="cargarArchivo()">Guardar archivo</button>
-                </div> -->
-        
             </section>
             <section id="seccion-3">
                 <div id="mensajeCarga">Cargando gráfico...</div>

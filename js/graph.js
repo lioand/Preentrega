@@ -1,15 +1,4 @@
 //-----------------------Dibujar Graficos en plotly------------------
-
-function getrandom(num , mul){ //crea un numero random
-   let value = [ ];
-   for(i=0;i<=num;i++)
-   {
-    let rand = Math.random() * mul;
-    value.push(rand);
-   }
-   return value;
-}
-
 const opciones = document.querySelectorAll('input[name="grafico"]');
 let seleccionAnterior = null;
 

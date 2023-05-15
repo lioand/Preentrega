@@ -1,5 +1,5 @@
 /* Ocultamos todas las secciones excepto la primera al cargar la página */
-section:not(#seccion-2) {
+section:not(#seccion-1) {
 	display: none;
 }
 
