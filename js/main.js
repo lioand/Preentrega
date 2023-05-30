@@ -25,7 +25,7 @@ btnSeccion2.addEventListener("click", function() {
 });
 
 btnSeccion3.addEventListener("click", function() {
-	// Ocultamos todas las secciones excepto la segunda
+	// Ocultamos todas las secciones excepto la tercera
 	seccion1.style.display = "none";
 	seccion2.style.display = "none";
 	seccion3.style.display = "block";
