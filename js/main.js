@@ -16,16 +16,16 @@
     switch (ingreso) {
         case 1: //en porcentaje
             porc = parseFloat(prompt("Ingrese la pendiente en porcentaje(%):"));
-            salida = Porcentaje(porc,salida);
+            salida = porcentaje(porc,salida);
             break;
         case 2: //en y/x
             gr_y = parseFloat(prompt("Ingrese el valor de la altura Y:", 1));
             gr_x = parseFloat(prompt("Ingrese el valor de la horizontal X:", 1));
-            salida = Grade (gr_y,gr_x,salida);
+            salida = grade (gr_y,gr_x,salida);
         break;
         case 3: //en grados
             grados = parseFloat(prompt("Ingrese la pendiente en grados(º):"));
-            salida = Angulo(grados,salida);
+            salida = angulo(grados,salida);
         break;
         default:
         break;
@@ -34,7 +34,7 @@
 console.log(salida);
 console.log(ingreso);
 
-function Grade (y,x,formatosalida) { //Convierte de [y/x] 
+function grade (y,x,formatosalida) { //Convierte de [y/x] 
     let sal_g;
     
     if (formatosalida == 1) { //a porcentaje
@@ -45,7 +45,7 @@ function Grade (y,x,formatosalida) { //Convierte de [y/x]
     }
     return sal_g;
 }
-function Porcentaje (porc,formatosalida) { //Convierte de porcentaje[%] 
+function porcentaje (porc,formatosalida) { //Convierte de porcentaje[%] 
     let sal_p;    //salida
 
     if (formatosalida == 2) { //a [y respecto al valor de x]
@@ -57,7 +57,7 @@ function Porcentaje (porc,formatosalida) { //Convierte de porcentaje[%]
     }
     return sal_p;
 }
-function Angulo (ang,formatosalida) { //Convierte de angulo[º] 
+function angulo (ang,formatosalida) { //Convierte de angulo[º] 
     let sal_a;    //salida
 
     if (formatosalida == 1) { //a porcentaje [%]
